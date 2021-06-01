@@ -11,9 +11,13 @@ efsz_anova = {"η^2": 1, "partial η^2": 2}
 dd_info = '分析手法の選択'
 
 
-# 多分、defでそれぞれのサイドバーを定義してReturnしたほうがきれい
+def sidebar_(dd_info, dd_contents):
+    selected_title = st.sidebar.selectbox(dd_info, list(dd_contents.keys()))
+    return selected_title
+
+
 def main():
-    title_ = st.sidebar.selectbox('コンテンツを選択', list(contents_.keys()))
+    title_ = sidebar_('コンテンツを選択', contents_)
     st.title(title_)
     if contents_[title_] == 1:
         selected_analyzes = st.sidebar.selectbox(dd_info, list(analyzes.keys()))
