@@ -20,9 +20,9 @@ def main():
     title_ = sidebar_('コンテンツを選択', contents_)
     st.title(title_)
     if contents_[title_] == 1:
-        selected_analyzes = st.sidebar.selectbox(dd_info, list(analyzes.keys()))
+        selected_analyzes = sidebar_(dd_info, analyzes)
         if analyzes[selected_analyzes] == 1:
-            selected_efsz = st.sidebar.selectbox(dd_info, list(efsz_ttest.keys()))
+            selected_efsz = sidebar_(dd_info, efsz_ttest)
             if efsz_ttest[selected_efsz] == 1:
                 escal.es_d_t()
             elif efsz_ttest[selected_efsz] == 2:
@@ -30,7 +30,7 @@ def main():
             elif efsz_ttest[selected_efsz] == 3:
                 pass
         elif analyzes[selected_analyzes] == 2:
-            selected_efsz = st.sidebar.selectbox(dd_info, list(efsz_anova.keys()))
+            selected_efsz = sidebar_(dd_info, efsz_anova)
             if efsz_anova[selected_efsz] == 1:
                 pass
             elif efsz_anova[selected_efsz] == 2:
